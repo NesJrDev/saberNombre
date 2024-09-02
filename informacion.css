@@ -1,0 +1,49 @@
+:root {
+    --skyblue: #BDE3FF;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.elementsComplete {
+    max-width: 800px;
+    width: 100%;
+    height: 1000px;
+    background-color: #E6E6E6;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    gap: 100px;
+    overflow: scroll;
+}
+.allInfo {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.barInfo {
+    width: 95%;
+    height: 40px;
+    background-color: #BDE3FF;
+    padding: 10px;
+}
+.barPercentaje {
+    width: 0%;
+    height: 100%;
+    background: #ffff;
+}
+.moreInfo {
+    width: 90%;
+}
+.register {
+    width: 90%;
+    border-top: 5px solid #85c8f8;
+}

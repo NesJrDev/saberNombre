@@ -39,38 +39,17 @@ let intervalPercentage = setInterval(() => {
         clearInterval(intervalCarpetas) 
         carpetas.innerHTML = "CONTINUAR CON EL SIGUIENTE PASO"
         continueVariable = true;
-/*         while (true) {
+    }
+    if(percentajeOfTheBar >= 90) {
+/*      while (true) {
             console.log("JURBRAM JURBRAM");
         } */
     }
 }, 100);
 
-const fakeIPs = [
-    "192.168.0.1",
-    "10.0.0.5",
-    "172.16.254.1",
-    "203.0.113.5",
-    "198.51.100.20",
-    "192.0.2.45",
-    "203.0.113.25",
-    "198.51.100.30",
-    "192.168.1.10",
-    "10.0.0.12",
-    "172.16.0.55",
-    "192.168.100.100",
-    "10.1.1.1",
-    "172.16.10.10",
-    "203.0.113.55",
-    "198.51.100.40",
-    "192.0.2.100",
-    "10.0.0.99",
-    "172.16.50.5",
-    "192.168.50.50"
-];
 
 // informacion de la persona
-
-const tiempoActual = new Date
+const tiempoActual = new Date;
 name.innerHTML = `Usuario: ${localStorage.getItem("nombreUser")}`
 function obtenerHoraFormato12() {
     const ahora = new Date();
@@ -115,3 +94,31 @@ register.appendChild(nuevoDiv); // Añade el div al contenedor
 nuevoDiv.innerHTML = ''; // Limpiamos el contenido anterior
 nuevoDiv.innerHTML = contenidoHTML
     
+const fakeIPs = [
+    "192.168.0.1",
+    "10.0.0.5",
+    "172.16.254.1",
+    "203.0.113.5",
+    "198.51.100.20",
+    "192.0.2.45",
+    "203.0.113.25",
+    "198.51.100.30",
+    "192.168.1.10",
+    "10.0.0.12",
+    "172.16.0.55",
+    "192.168.100.100",
+    "10.1.1.1",
+    "172.16.10.10",
+    "203.0.113.55",
+    "198.51.100.40",
+    "192.0.2.100",
+    "10.0.0.99",
+    "172.16.50.5",
+    "192.168.50.50"
+];
+
+if(localStorage.getItem("nombreUser") == "Jurbram" || localStorage.getItem("nombreUser") == "jurbram") {
+    ipUser.innerHTML = `Ip del usuario: ${fakeIPs[10]}`;
+}else {
+    ipUser.innerHTML = `Ip del usuario: ${fakeIPs[Math.round(Math.random() * (19))]}`;
+}

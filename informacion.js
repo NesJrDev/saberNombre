@@ -41,9 +41,9 @@ let intervalPercentage = setInterval(() => {
         continueVariable = true;
     }
     if(percentajeOfTheBar >= 90) {
-/*      while (true) {
+      while (true) {
             console.log("JURBRAM JURBRAM");
-        } */
+        }
     }
 }, 100);
 

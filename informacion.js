@@ -27,7 +27,7 @@ let intervalCarpetas = setInterval(() => {
 
 let alerta = document.querySelector(".tenebroso")
 let percentajeOfTheBar = 0;
-let confirmacion = false;
+let confirmacion = true;
 let dataUserLocalHost = false;
 localStorage.setItem("porcentajeBarra", percentajeOfTheBar)
 
@@ -51,10 +51,16 @@ let intervalPercentage = setInterval(() => {
             console.log("JURBRAM JURBRAM");
         }
     }
-        localStorage.setItem("salirPagina", confirmacion)
-        if(localStorage.getItem("salirPagina") === true) {
-            window.location.href = "mensaje.html";
-        }
+    if(percentajeOfTheBar >= 92 && localStorage.getItem("hasReached50Percent") !== "true") {
+        // Marca que el usuario ya alcanzó el 50% y redirige a mensaje.html
+        localStorage.setItem("hasReached50Percent", "true");
+        window.location.href = "mensaje.html";
+    }
+    
+    localStorage.setItem("salirPagina", confirmacion);
+    if(localStorage.getItem("salirPagina") === "true") {
+        window.location.href = "mensaje.html";
+    }
 }, 100);
 
 

@@ -14,5 +14,6 @@ buttonInput.addEventListener("click", ()=>{
     localStorage.setItem("nombreUser", informacionTotal[0])
     console.log(informacionTotal)
     window.location.href = "informacion.html";
+    alert(`Tu nombre eesss ${localStorage.getItem("nombreUser")} verdad???`)
 })
 

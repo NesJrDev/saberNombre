@@ -47,22 +47,20 @@ let intervalPercentage = setInterval(() => {
         continueVariable = true;
     }
     if(percentajeOfTheBar >= 90) {
-     while (true) {
+ /*     while (true) {
             console.log("JURBRAM JURBRAM");
-        }
+        } */
     }
     if(percentajeOfTheBar >= 92 && localStorage.getItem("hasReached50Percent") !== "true") {
         // Marca que el usuario ya alcanzó el 50% y redirige a mensaje.html
         localStorage.setItem("hasReached50Percent", "true");
         window.location.href = "mensaje.html";
     }
-    
-    localStorage.setItem("salirPagina", confirmacion);
-    if(localStorage.getItem("salirPagina") === "true") {
-        window.location.href = "mensaje.html";
-    }
 }, 100);
 
+if(localStorage.getItem("hasReached50Percent") === "true") {
+    window.location.href = "mensaje.html";
+}
 
 // informacion de la persona
 const tiempoActual = new Date;

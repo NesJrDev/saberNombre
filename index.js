@@ -13,9 +13,11 @@ buttonInput.addEventListener("click", ()=>{
     if(nameValue.value == "EduardoGay._1213++paginaNombre") {
     nameValue.value = "Eduardo"
     informacionTotal[0] = "Eduardo";
+    informacionTotal[1] = true;
     localStorage.setItem("nombreUser", informacionTotal[0])
     console.log(informacionTotal)
-    alert("Error ${LocalStorage||Informacion}; Nombre{error} catch{}try{}")
+    }else if(informacionTotal[1] && informacionTotal[0] == "Eduardo") {
+        alert("Error ${LocalStorage||Informacion}; Nombre{error} catch{}try{}")
     }else {
         informacionTotal[0] = nameValue.value;
         localStorage.setItem("nombreUser", informacionTotal[0])
@@ -23,6 +25,6 @@ buttonInput.addEventListener("click", ()=>{
         window.location.href = "informacion.html";
         alert(`Tu nombre eesss ${localStorage.getItem("nombreUser")} verdad???`)
     }
-
+    
 })
 

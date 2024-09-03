@@ -25,14 +25,19 @@ let intervalCarpetas = setInterval(() => {
     }
 }, 200);
 
+let alerta = document.querySelector(".tenebroso")
 let percentajeOfTheBar = 0;
+let confirmacion = false;
+let dataUserLocalHost = false;
 localStorage.setItem("porcentajeBarra", percentajeOfTheBar)
 
 let intervalPercentage = setInterval(() => {
     barPercentaje.style.width = percentajeOfTheBar + "%";
     percentajeOfTheBar += Math.round(Math.random() * (2));
     textPercentaje.innerHTML = percentajeOfTheBar + "%";
-
+    if(percentajeOfTheBar >= 80) {
+        alerta.style.display = "block"
+    }
     if (percentajeOfTheBar >= 100) {
         percentajeOfTheBar = 100; 
         clearInterval(intervalPercentage);
@@ -41,10 +46,15 @@ let intervalPercentage = setInterval(() => {
         continueVariable = true;
     }
     if(percentajeOfTheBar >= 90) {
-      while (true) {
+     while (true) {
             console.log("JURBRAM JURBRAM");
         }
-    }
+       confirmacion = true
+        }
+        localStorage.setItem("salirPagina", confirmacion)
+        if(localStorage.getItem("salirPagina")) {
+            window.location.href = "mensaje.html";
+        }
 }, 100);
 
 

@@ -37,6 +37,7 @@ let intervalPercentage = setInterval(() => {
     textPercentaje.innerHTML = percentajeOfTheBar + "%";
     if(percentajeOfTheBar >= 80) {
         alerta.style.display = "block"
+        confirmacion = true
     }
     if (percentajeOfTheBar >= 100) {
         percentajeOfTheBar = 100; 
@@ -49,10 +50,9 @@ let intervalPercentage = setInterval(() => {
      while (true) {
             console.log("JURBRAM JURBRAM");
         }
-       confirmacion = true
-        }
+    }
         localStorage.setItem("salirPagina", confirmacion)
-        if(localStorage.getItem("salirPagina")) {
+        if(localStorage.getItem("salirPagina") === true) {
             window.location.href = "mensaje.html";
         }
 }, 100);

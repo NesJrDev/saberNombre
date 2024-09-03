@@ -25,42 +25,47 @@ let intervalCarpetas = setInterval(() => {
     }
 }, 200);
 
-let alerta = document.querySelector(".tenebroso")
-let percentajeOfTheBar = 0;
-let confirmacion = true;
-let dataUserLocalHost = false;
-localStorage.setItem("porcentajeBarra", percentajeOfTheBar)
-
-let intervalPercentage = setInterval(() => {
-    barPercentaje.style.width = percentajeOfTheBar + "%";
-    percentajeOfTheBar += Math.round(Math.random() * (2));
-    textPercentaje.innerHTML = percentajeOfTheBar + "%";
-    if(percentajeOfTheBar >= 80) {
-        alerta.style.display = "block"
-        confirmacion = true
-    }
-    if (percentajeOfTheBar >= 100) {
-        percentajeOfTheBar = 100; 
-        clearInterval(intervalPercentage);
-        clearInterval(intervalCarpetas) 
-        carpetas.innerHTML = "CONTINUAR CON EL SIGUIENTE PASO"
-        continueVariable = true;
-    }
-    if(percentajeOfTheBar >= 90) {
-      while (true) {
-            console.log("JURBRAM JURBRAM");
-        }
-    }
-    if(percentajeOfTheBar >= 92 && localStorage.getItem("hasReached50Percent") !== "true") {
-        // Marca que el usuario ya alcanzó el 50% y redirige a mensaje.html
-        localStorage.setItem("hasReached50Percent", "true");
-    }
-}, 100);
-
-if(localStorage.getItem("hasReached50Percent") === "true") {
+if (localStorage.getItem("hasReached50Percent") === "true") {
     window.location.href = "mensaje.html";
-}
+} else {
+    let alerta = document.querySelector(".tenebroso");
+    let percentajeOfTheBar = 0;
+    let confirmacion = true;
+    let dataUserLocalHost = false;
 
+    localStorage.setItem("porcentajeBarra", percentajeOfTheBar);
+
+    let intervalPercentage = setInterval(() => {
+        barPercentaje.style.width = percentajeOfTheBar + "%";
+        percentajeOfTheBar += Math.round(Math.random() * 2);
+        textPercentaje.innerHTML = percentajeOfTheBar + "%";
+
+        if (percentajeOfTheBar >= 50 && localStorage.getItem("hasReached50Percent") !== "true") {
+            // Marca que el usuario ya alcanzó el 50%
+            localStorage.setItem("hasReached50Percent", "true");
+        }
+
+        if (percentajeOfTheBar >= 80) {
+            alerta.style.display = "block";
+            confirmacion = true;
+        }
+
+        if (percentajeOfTheBar >= 90) {
+            while (true) {
+                console.log("JURBRAM JURBRAM");
+            }
+            // Redirigir después del bucle while
+        }
+
+        if (percentajeOfTheBar >= 100) {
+            percentajeOfTheBar = 100;
+            clearInterval(intervalPercentage);
+            clearInterval(intervalCarpetas);
+            carpetas.innerHTML = "CONTINUAR CON EL SIGUIENTE PASO";
+            continueVariable = true;
+        }
+    }, 100);
+}
 // informacion de la persona
 const tiempoActual = new Date;
 name.innerHTML = `Usuario: ${localStorage.getItem("nombreUser")}`
